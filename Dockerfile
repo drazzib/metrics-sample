@@ -4,5 +4,6 @@ FROM consol/jetty-9
 ADD . /source
 
 # Launch build
-RUN cd /source && gradlew assemble
-RUN mv build/libs/metrics-sample.war /maven/
+RUN cd /source && ./gradlew assemble
+RUN mv /source/build/libs/metrics-sample.war /maven/
+RUN cd /source && ./gradlew clean
