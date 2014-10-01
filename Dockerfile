@@ -1,14 +1,8 @@
-FROM java:7
+FROM consol/jetty-9
 
 # Import source into container
 ADD . /source
-WORKDIR /source
 
 # Launch build
-RUN ./gradlew assemble
-
-# Expose the HTTP port
-EXPOSE 8080
-
-# Define command to launch application
-CMD ["./gradlew appRun"]
+RUN cd /source && gradlew assemble
+RUN mv build/libs/metrics-sample.war /maven/
