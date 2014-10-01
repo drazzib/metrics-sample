@@ -5,5 +5,6 @@ ADD . /source
 
 # Launch build
 RUN cd /source && ./gradlew assemble
-RUN mv /source/build/libs/metrics-sample.war /maven/
+RUN mkdir -p $DEPLOY_DIR
+RUN cd /source && mv build/libs/metrics-sample.war $DEPLOY_DIR/
 RUN cd /source && ./gradlew clean
