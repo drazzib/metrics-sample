@@ -1,0 +1,14 @@
+graphite:
+  image: kamon/grafana_graphite
+  ports:
+   - "127.0.0.1:80:80"
+   - "127.0.0.1:8125:8125/udp"
+   - "127.0.0.1:8126:8126"
+   - "127.0.0.1:2003:2003"
+
+sample:
+  image: drazzib/metrics-sample
+  ports:
+   - "127.0.0.1:8080:8080"
+  links:
+   - graphite:graphite
