@@ -1,0 +1,47 @@
+buildscript {
+    repositories {
+        maven { url 'http://repo.spring.io/plugins-release' }
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
+        classpath "org.akhikhl.gretty:gretty:1.1.3"
+    }
+}
+
+configure(allprojects) {
+    apply plugin: 'propdeps'
+    apply plugin: 'propdeps-maven'
+    apply plugin: 'propdeps-idea'
+    apply plugin: 'propdeps-eclipse'
+    apply plugin: 'war'
+    apply plugin: "org.akhikhl.gretty"
+}
+
+repositories {
+    mavenCentral()
+}
+
+gretty {
+    servletContainer = 'jetty9'
+    springBoot = false
+}
+
+dependencies {
+    provided "javax.servlet:javax.servlet-api:3.1.0"
+
+    // FIXME:DRM: https://github.com/akhikhl/gretty/issues/31
+    runtime 'ch.qos.logback:logback-classic:1.1.2'
+
+    // Core Metrics
+    compile 'com.codahale.metrics:metrics-core:3.0.2'
+    compile 'com.codahale.metrics:metrics-jvm:3.0.2'
+
+    // Some nice toolbox
+    compile 'com.codahale.metrics:metrics-healthchecks:3.0.2'
+    compile 'com.codahale.metrics:metrics-servlets:3.0.2'
+    compile 'com.codahale.metrics:metrics-jetty9:3.0.2'
+
+    // Reporter
+    compile 'com.codahale.metrics:metrics-graphite:3.0.2'
+}
