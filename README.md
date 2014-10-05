@@ -1,4 +1,7 @@
 This sample project demonstrates usage of Metrics + Graphite + Graphana.
+
+You can check my _[Metrics, check your performance](http://www.drazzib.com/projects/docs/metrics)_ slides
+for some background informations about those samples.
          
 Presentation
 ============
