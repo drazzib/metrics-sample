@@ -18,8 +18,8 @@ Source code
 ===========
 Current project provides a sample integration between JEE Servlet and Metrics. You can check sample code :
 
-+ [HelloWorldServlet](blob/master/src/main/java/com/drazzib/metrics/HelloWorldServlet.java) compute some metrics about received requests
-+ [MetricRegistryCListener](blob/master/src/main/java/com/drazzib/metrics/MetricRegistryCListener.java) create MetricRegistry and
++ [HelloWorldServlet](/drazzib/metrics-sample/blob/master/src/main/java/com/drazzib/metrics/HelloWorldServlet.java) compute some metrics about received requests
++ [MetricRegistryCListener](/drazzib/metrics-sample/blob/master/src/main/java/com/drazzib/metrics/MetricRegistryCListener.java) create MetricRegistry and
   register some reporter for JMX and Graphite.
 
 Usage
